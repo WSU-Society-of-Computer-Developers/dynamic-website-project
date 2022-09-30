@@ -1,0 +1,113 @@
+<!-- 
+bootstrap css website 
+-->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My dynamic website</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Navbar START -->
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">My Site</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="https://zavaar.net">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://info.zavaar.net">Portfolio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled">My Private site...</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Navbar END -->
+        <h1>Welcome to my site.</h1>
+        <!-- Main accordion -->
+        <div class="accordion" id="accordionExample">
+            <!-- Weather API -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#weatherSection" aria-expanded="true" aria-controls="weatherSection">
+                        Weather API
+                    </button>
+                </h2>
+                <div id="weatherSection" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <h2 id="weather">Loading weather data...</h2>
+                    </div>
+                </div>
+            </div>
+            <!-- Ron Swanson Quotes -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#quotesSection" aria-expanded="true" aria-controls="quotesSection">
+                        Ron Swanson Quotes
+                    </button>
+                </h2>
+                <div id="quotesSection" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <div id="ronQuotes">
+                            Loading quote...
+                        </div>
+                        <label for="quoteRange" class="form-label"><b>Number of Quotes:</b></label>
+                        <input type="range" onchange="RonQuotesAPI.getQuotes(this.value)" class="form-range" value="1"
+                            min="1" max="109" step="1" id="quoteRange">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Search terms" id="ronSearchTerms"
+                                aria-label="search" aria-describedby="button-addon2">
+                            <button class="btn btn-outline-secondary" onclick="RonQuotesAPI.searchQuotes()" type="button" id="button-addon2">Search!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Dog API -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#dogSection" aria-expanded="true" aria-controls="dogSection">
+                        Random Dog
+                    </button>
+                </h2>
+                <div id="dogSection" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe id="dog" class="embed-responsive-item"
+                                src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Youtube_loading_symbol_1_(wobbly).gif"></iframe>
+                            <button type="button" id="dogStatus" onclick="API.getRandomDog()"
+                                class="btn btn-primary">Get random dog</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
